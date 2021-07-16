@@ -1,0 +1,15 @@
+@import "./main.scss";
+@import "./support.scss";
+@import "./animations.scss";
+
+body p {
+  margin: 12px auto;
+}
+
+a {
+  color : #3899ec;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

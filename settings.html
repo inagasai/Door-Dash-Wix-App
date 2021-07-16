@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo App - Settings</title>
+    <script src="//static.parastorage.com/services/third-party/react/15.3.1/react-with-addons.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/react/15.3.1/react-dom.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/jquery/3.1.1/dist/jquery.min.js"></script>
+    <script src="//static.parastorage.com/services/third-party/lodash/4.17.2/lodash.js"></script>
+    <script src="//static.parastorage.com/services/js-sdk/1.425.0/js/wix.min.js"></script>
+    <script src="//static.parastorage.com/services/editor-ui-lib/1.28.0/lib/editor-ui-lib-jquery.min.js"></script>
+    <link rel="stylesheet" href="settings.css?v=2" type="text/css" /> 
+</head>
+<body>
+<div wix-ctrl="appSettings"></div>
+<div wix-ctrl="panelTabs" wix-options="{defaultTabIndex:0}">
+
+    <!--Buttons settings tab-->
+
+    <div tab="Main">
+        <hr class="divider-long"/>
+
+        <div wix-ctrl="SectionDividerLabeled"
+             wix-options="{label: 'Button Settings'}">
+        </div>
+
+        <hr class="divider-long"/>
+
+        <div class="business_ID"
+             wix-ctrl="Input"
+             wix-options="{
+                    title: 'Business ID',
+                    placeholder: 'enter business id',
+                    validateOnBlurOnly: true,
+                    invalidMessage: 'Invalid Business ID'
+                }"
+        ></div>
+
+        <hr class="divider-long"/>
+        
+        <!--<div class="anchor_business_ID"
+             wix-ctrl="Input"
+             wix-options="{
+                    title: 'Anchor Store ID',
+                    placeholder: 'enter anchor store id',
+                    validateOnBlurOnly: true,
+                    invalidMessage: 'Invalid Anchor Store ID'
+                }"
+        ></div>
+
+        <hr class="divider-long"/>-->
+
+        <div class="button_text"
+             wix-ctrl="Input"
+             wix-options="{
+                    title: 'Buton Text',
+                    placeholder: 'enter button text',
+                    validateOnBlurOnly: true,
+                    invalidMessage: 'Invalid Button Text'
+                }"
+        ></div>      
+
+        <hr class="divider-long"/>
+
+        <div class="advanced_settings_btn">
+            <div class="_text">Advanced Settings</div>
+            <svg width="30" height="30" version="1.1" viewBox="0 0 7.9375 7.9375" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(0 -289.06)">
+            <path d="m7.3819 291.63-3.3955 3.3955-3.3955-3.3955" fill="none" opacity=".8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+            </g>
+            </svg>            
+        </div>
+
+        <div class="advanced_settings">                
+
+            <div class="button_position"
+                wix-ctrl="DropDown"
+                wix-options="{
+                        title: 'Button Position',
+                        defaultValue: '0',
+                        options: [
+                            { value: '0', label: 'Select Position'},
+                            { value: 'top', label: ' Top'},
+                            { value: 'bottom', label: ' Bottom'},                        
+                        ]
+                    }"
+            ></div>
+
+            <hr class="divider-long"/>
+
+            <div wix-param="_buttonBackgroundColor"
+                wix-ctrl="ColorPickerSlider"
+                wix-options="{
+                        title: 'Button Background Color',
+                        startWithColor: 'color-1'
+                    }"
+            ></div>
+
+            <hr class="divider-long"/>
+
+            <div wix-param="_buttonTextColor"
+                wix-ctrl="ColorPickerSlider"
+                wix-options="{
+                        title: 'Button Text Color',
+                        startWithColor: 'color-5'
+                    }"
+            ></div>
+
+            <hr class="divider-long"/>
+
+            <div class="button_alignment"
+                wix-ctrl="DropDown"
+                wix-options="{
+                        title: 'Button Alignment',
+                        defaultValue: '0',
+                        options: [
+                            { value: '0', label: 'Select Alignment'},
+                            { value: 'left', label: 'Left'},
+                            { value: 'center', label: ' Center'},
+                            { value: 'right', label: ' Right'},                        
+                        ]
+                    }"
+            ></div>
+
+            <hr class="divider-long"/>
+
+            <div id="ToggleSwitch" class="floatingBar"
+                wix-ctrl="ToggleSwitch"
+                wix-options="{
+                            label: 'Floating Bar',
+                            defaultValue: true,
+                            infoText: 'some information text should be here'
+                        }"
+            ></div>
+
+            <hr class="divider-long"/>
+
+            <div wix-param="_floatingBarColor"
+                wix-ctrl="ColorPickerSlider"
+                wix-options="{
+                        title: 'Floating Bar Color',
+                        startWithColor: 'color-5'
+                    }"
+            ></div>
+
+            <hr class="divider-long"/>
+        </div>
+
+
+    </div>
+       
+
+    <!--Support tab-->
+
+    <div tab="Support" class="support-tab">
+        <hr class="divider-long"/>
+
+        <div wix-ctrl="SectionDividerLabeled"
+             wix-options="{label: 'Developer Info'}">
+        </div>
+
+        <hr class="divider-long"/>
+
+        <ul class="developer-info">
+            <li class="field">
+                <div wix-ctrl="Symbol" wix-options="{name: 'email'}"></div>
+                <a href="mailto:storefronthelp@doordash.com">storefronthelp@doordash.com</a>
+            </li>            
+            <li class="field">
+                <div wix-ctrl="Symbol" wix-options="{name: 'phone'}"></div>
+                <a href="tel:855-973-1040">(855) 973 - 1040</a>
+            </li>
+            <li class="field">
+                <div wix-ctrl="Symbol" wix-options="{name: 'globe'}"></div>
+                <a href="https://dev.doordash.com" target="_blank">Developer Website</a>
+            </li>
+            <li class="field">
+                <div class="field-info">Say, access your DoorDash Storefront account details in your DoorDash Merchant Portal</div>
+                <div wix-ctrl="Symbol" wix-options="{name: 'globe'}"></div>
+                <a href="https://www.doordash.com/merchant" target="_blank">Merchant Website</a>                
+            </li>
+        </ul>
+        
+    </div>
+
+    
+</div>
+
+<script src="settings.js?v=2"> </script>
+</body>
+</html>
