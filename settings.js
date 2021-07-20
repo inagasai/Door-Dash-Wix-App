@@ -16,14 +16,49 @@
       });  
     }
     advanced_settings();
+
+     
+     attachListeners();
+   // $(attachListeners);
+
+
+   Wix.Data.Public.set("startCounter",25, { scope: 'APP' },
+        function(d) { console.log(d) }, function(f) { console.log(f) }
+   );
+    
   })
 })(jQuery);
 
 
-function onUpdate(key, value) {
+function onUpdate(key, value) { 
   //Wix.Settings.triggerSettingsUpdatedEvent({key: key, value: value});
+  //Wix.Settings.triggerSettingsUpdatedEvent({key: key+'Fast', value: "123456"});
   console.log(key);
   console.log(value);
+  console.log(Wix);
+  Wix.Data.Public.set(key, value, { scope: 'APP' },
+       function(d) { console.log(d) }, function(f) { console.log(f) }
+  );
+  //Wix.Settings.triggerSettingsUpdatedEvent({key: 'dropdown2', value: 0});
+  Wix.Styles.getStyleParams(style => {
+    console.log(style);
+  });  
+  //Wix.UI.set('messagePlaceholder',"fast");  
+
+}
+function getPublic($element, ctrl) { 
+  if($element.attr('wix-ctrl')!="Input") return;
+  console.log('Input');
+  var key=$element.attr('wix-model');
+  if(!key) return;
+  console.log('key');
+  console.log(key);   
+  Wix.Data.Public.get(key, { scope: 'APP' }, 
+    function(d){console.log(d);  ctrl.setValue(d[key]);}, 
+    function(f){console.log(f)}
+  );
+  console.log(ctrl); 
+ 
 }
 
 function attachListeners() {
@@ -34,43 +69,9 @@ function attachListeners() {
       ctrl.onChange(function (value) {
         onUpdate($element.attr('wix-param'), value);
       })
-    }
-
-    $('.support_email').getCtrl().setValidationFunction(function(email){
-      return validateEmail(email);
-    });
-
-    $(sendButtonControl);
-  });
-
-function validateEmail(email) {
-    let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return reg.test(email);
-}
-
-function validateMessage(){
-  return $('.support_message').getCtrl().getValue().length > 5;
-}
-
-function sendButtonControl(){
-  $('.support_message, .support_email').each(function(index, element){
-    var ctrl = $(element).getCtrl();
-    ctrl.onChange(function(){
-      var button = $('.support_sendButton').getCtrl();
-      if(validateEmail($('.support_email').getCtrl().getValue()) && validateMessage() && button.options.disabled){
-        button.enable();
-      }
-      else{
-        button.disable();
-      }
-    });
+    } 
+    getPublic($element, ctrl);  
+    console.log("ctrl");   
+    //console.log(ctrl);   
   });
 }
-
-
-  $('#main-cta').getCtrl().onClick(function () {
-    console.log('This is your call-to-action, take it seriously');
-  })
-}
-
-$(attachListeners);

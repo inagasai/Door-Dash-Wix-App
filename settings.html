@@ -23,11 +23,23 @@
         <div wix-ctrl="SectionDividerLabeled"
              wix-options="{label: 'Button Settings'}">
         </div>
+        <div id="messagePlaceholder" wix-model="messagePlaceholder" wix-ctrl="Input" wix-options="{ placeholder: 'Type here and press Enter to chat',size:'large' }"></div>
+        <div class="support_message"
+             wix-ctrl="Input"
+             wix-param="_input1"
+             wix-options="{
+                    title: 'Comments',
+                    placeholder: 'We\'d love to hear from you. Send us a message.',
+                    isMultiLine: true
+                }"
+        ></div>
 
         <hr class="divider-long"/>
 
-        <div class="business_ID"
-             wix-ctrl="Input"
+        <div id="_businessID" class="business_ID"
+             wix-ctrl="Input"     
+             wix-param="_businessID"         
+             wix-model="_businessID"            
              wix-options="{
                     title: 'Business ID',
                     placeholder: 'enter business id',
@@ -52,6 +64,8 @@
 
         <div class="button_text"
              wix-ctrl="Input"
+             wix-param="_buttonText"   
+             wix-model="_buttonText"
              wix-options="{
                     title: 'Buton Text',
                     placeholder: 'enter button text',
@@ -72,19 +86,34 @@
         </div>
 
         <div class="advanced_settings">                
+            <div class="settings_onImageClick"
+                wix-ctrl="DropDown"
+                wix-param="dropdown2"
+                wix-options="{
+                        title: 'When image is clicked',
+                        defaultValue: '0',
+                        options: [
+                            { value: '0', label: 'Enter expand mode'},
+                            { value: '1', label: 'Show on full screen'},
+                            { value: '2', label: 'Do nothing'}
+                        ]
+                    }"
+            ></div>
 
             <div class="button_position"
                 wix-ctrl="DropDown"
+                wix-param="_buttonPosition"
                 wix-options="{
                         title: 'Button Position',
                         defaultValue: '0',
                         options: [
                             { value: '0', label: 'Select Position'},
-                            { value: 'top', label: ' Top'},
-                            { value: 'bottom', label: ' Bottom'},                        
+                            { value: '1', label: 'Top'},
+                            { value: '2', label: 'Bottom'}                      
                         ]
                     }"
             ></div>
+
 
             <hr class="divider-long"/>
 
@@ -110,14 +139,15 @@
 
             <div class="button_alignment"
                 wix-ctrl="DropDown"
+                wix-param="_buttonAlignment"
                 wix-options="{
                         title: 'Button Alignment',
                         defaultValue: '0',
                         options: [
                             { value: '0', label: 'Select Alignment'},
-                            { value: 'left', label: 'Left'},
-                            { value: 'center', label: ' Center'},
-                            { value: 'right', label: ' Right'},                        
+                            { value: '1', label: 'Left'},
+                            { value: '2', label: ' Center'},
+                            { value: '3', label: ' Right'},                        
                         ]
                     }"
             ></div>
@@ -126,6 +156,7 @@
 
             <div id="ToggleSwitch" class="floatingBar"
                 wix-ctrl="ToggleSwitch"
+                wix-param="_floatingBar"
                 wix-options="{
                             label: 'Floating Bar',
                             defaultValue: true,
@@ -135,7 +166,7 @@
 
             <hr class="divider-long"/>
 
-            <div wix-param="_floatingBarColor"
+            <div wix-param="_floatingBarColor2"
                 wix-ctrl="ColorPickerSlider"
                 wix-options="{
                         title: 'Floating Bar Color',
