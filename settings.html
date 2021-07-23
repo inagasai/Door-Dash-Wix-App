@@ -22,17 +22,7 @@
 
         <div wix-ctrl="SectionDividerLabeled"
              wix-options="{label: 'Button Settings'}">
-        </div>
-        <div id="messagePlaceholder" wix-model="messagePlaceholder" wix-ctrl="Input" wix-options="{ placeholder: 'Type here and press Enter to chat',size:'large' }"></div>
-        <div class="support_message"
-             wix-ctrl="Input"
-             wix-param="_input1"
-             wix-options="{
-                    title: 'Comments',
-                    placeholder: 'We\'d love to hear from you. Send us a message.',
-                    isMultiLine: true
-                }"
-        ></div>
+        </div>    
 
         <hr class="divider-long"/>
 
@@ -85,20 +75,7 @@
             </svg>            
         </div>
 
-        <div class="advanced_settings">                
-            <div class="settings_onImageClick"
-                wix-ctrl="DropDown"
-                wix-param="dropdown2"
-                wix-options="{
-                        title: 'When image is clicked',
-                        defaultValue: '0',
-                        options: [
-                            { value: '0', label: 'Enter expand mode'},
-                            { value: '1', label: 'Show on full screen'},
-                            { value: '2', label: 'Do nothing'}
-                        ]
-                    }"
-            ></div>
+        <div class="advanced_settings">  
 
             <div class="button_position"
                 wix-ctrl="DropDown"
@@ -166,7 +143,7 @@
 
             <hr class="divider-long"/>
 
-            <div wix-param="_floatingBarColor2"
+            <div wix-param="_floatingBarColor"
                 wix-ctrl="ColorPickerSlider"
                 wix-options="{
                         title: 'Floating Bar Color',
