@@ -141,8 +141,7 @@ console.log("Widget");
                 })(window, document.head); 
             }
             
-            SDK_loaded=true;
-
+            SDK_loaded=true;            
             var prop={
                 businessId: data._businessID,
                 buttonText: data._buttonText,
@@ -154,6 +153,7 @@ console.log("Widget");
                 backgroundColor: style_data.colors._floatingBarColor.value,
                 urlParams: { utm_medium: "wix_app" },
             };
+            if(!prop.buttonText) prop.buttonText="Order Online";
 
             if(window['StorefrontSDK']){
                 $body.html(" FASTY ");
